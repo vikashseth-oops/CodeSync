@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ─── Design Tokens ───────────────────────────────────── */
+:root {
+  /* Charcoal dark palette */
+  --bg-base:      #17171a;
+  --bg-surface:   #1c1c20;
+  --bg-elevated:  #202024;
+  --bg-hover:     #26262c;
+  --bg-selected:  #2a2a32;
+
+  /* Borders */
+  --border:       #2e2e35;
+  --border-light: #383840;
+
+  /* Text */
+  --text-primary:   #e8e8ed;
+  --text-secondary: #9999a8;
+  --text-muted:     #5c5c6a;
+
+  /* Single accent: a restrained indigo-ish purple */
+  --accent:       #6366f1;
+  --accent-dim:   rgba(99, 102, 241, 0.12);
+  --accent-border: rgba(99, 102, 241, 0.25);
+
+  /* Status */
+  --green:  #22c55e;
+  --amber:  #f59e0b;
+  --red:    #ef4444;
+}
+
+/* ─── Base ────────────────────────────────────────────── */
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    background: var(--bg-base);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  code, pre, .font-mono, kbd {
+    font-family: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* ─── Scrollbars ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-light); }
+
+/* ─── Yjs Monaco Cursors ─────────────────────────────── */
+.yRemoteSelection {
+  background-color: rgba(99, 102, 241, 0.18);
+  border-radius: 1px;
+}
+.yRemoteSelectionHead {
+  position: absolute;
+  border-left: 2px solid var(--accent);
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  height: 100%;
+  box-sizing: border-box;
+}
+.yRemoteSelectionHead::after {
+  position: absolute;
+  content: ' ';
+  border: 3px solid var(--accent);
+  left: -4px;
+  top: -5px;
+}
+
+/* ─── IDE Panel Classes ───────────────────────────────── */
+.ide-panel       { background: var(--bg-surface);  border-color: var(--border); }
+.ide-activitybar { background: var(--bg-base);     border-color: var(--border); }
+.ide-sidebar     { background: var(--bg-surface);  border-color: var(--border); }
+.ide-header      { background: var(--bg-elevated); border-color: var(--border); }
+.ide-statusbar   { background: var(--bg-base);     border-color: var(--border); }
+
+/* ─── Avatar ──────────────────────────────────────────── */
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1.5px solid var(--border-light);
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ─── Animations ──────────────────────────────────────── */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-status-pulse {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+/* ─── Focus visible ───────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: 3px;
+}
+
+/* ─── No scrollbar utility ────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Tooltip ─────────────────────────────────────────── */
+[title] { cursor: default; }
