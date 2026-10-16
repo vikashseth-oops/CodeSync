@@ -14,18 +14,8 @@ const TEMPLATES = [
         id: 'file-main',
         name: 'index.js',
         language: 'javascript',
-        content: `// Real-Time Collaborative Workspace
-console.log("🚀 Project initialized!");
-
-function fibonacci(n) {
-  if (n <= 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
-}
-
-const terms = 10;
-const series = Array.from({ length: terms }, (_, i) => fibonacci(i));
-console.log(\`First \${terms} Fibonacci numbers:\`, series);
-`
+        content: `// Real-Time Collaborative Work
+        // Write Your Code Here`
       },
       {
         id: 'file-utils',
@@ -50,17 +40,8 @@ console.log(\`First \${terms} Fibonacci numbers:\`, series);
         name: 'main.py',
         language: 'python',
         content: `# Collaborative Python Workspace
-
-def calculate_primes(limit):
-    primes = []
-    for num in range(2, limit + 1):
-        if all(num % i != 0 for i in range(2, int(num**0.5) + 1)):
-            primes.append(num)
-    return primes
-
-print("⚡ Prime numbers up to 50:")
-print(calculate_primes(50))
-`
+                 #Write your Code Here
+       `
       }
     ]
   },
@@ -75,22 +56,7 @@ print(calculate_primes(50))
         id: 'file-html',
         name: 'index.html',
         language: 'html',
-        content: `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CodeSync Web App</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="card">
-    <h1>🚀 Hello CodeSync!</h1>
-    <p>Real-time collaborative web development.</p>
-    <button id="btn">Click me</button>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
+        content: `Write your code Here
 `
       },
       {
